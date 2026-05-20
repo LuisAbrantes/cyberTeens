@@ -1,0 +1,179 @@
+/* ================================================================
+   NAVBAR.CSS — Estilos modernos da barra de navegação
+   CyberTeens Academy | Design Refatorado
+   ================================================================ */
+
+.navbar {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    padding: 0.8rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 2px solid rgba(13, 71, 161, 0.1);
+}
+
+/* ── LOGO ──────────────────────────────────────────– */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.3rem;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition: all var(--transition);
+}
+
+.navbar .logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar .logo .shield-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+}
+
+/* ── LINKS DE NAVEGAÇÃO ────────────────────────────– */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 0;
+    align-items: center;
+}
+
+.nav-links li a {
+    display: block;
+    color: var(--gray-200);
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    position: relative;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    transition: width var(--transition-fast);
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.nav-links li a:hover::before {
+    width: 100%;
+}
+
+.nav-links li a.active {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+}
+
+.nav-links li a.active::before {
+    width: 100%;
+}
+
+/* ── BOTÃO HAMBÚRGUER (mobile) ─────────────────────– */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    z-index: 1001;
+    transition: all var(--transition);
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+    transform-origin: center;
+}
+
+/* Animação do ícone X quando o menu está aberto */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 60px;
+        padding: 0.6rem 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--gray-900);
+        gap: 0;
+        border-bottom: 1px solid rgba(13, 71, 161, 0.1);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,185 @@
+/* ================================================================
+   BASE.CSS — Variáveis de design, reset e estilos globais
+   CyberTeens Academy | Refatorado para Design Autêntico
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap');
+
+:root {
+    /* Paleta primária — Cibersegurança moderno */
+    --primary:      #0d47a1;      /* Azul profundo */
+    --primary-alt:  #1565c0;      /* Azul claro */
+    --accent:       #ff6f00;      /* Laranja vibrante */
+    --accent-light: #ffb74d;      /* Laranja claro */
+    --success:      #00897b;      /* Teal escuro */
+    --success-light:#26a69a;      /* Teal claro */
+    --danger:       #c62828;      /* Vermelho escuro */
+    --danger-light: #ef5350;      /* Vermelho claro */
+    --white:        #ffffff;
+
+    /* Escala de cinza refinada */
+    --gray-50:  #fafbfc;
+    --gray-100: #f3f4f6;
+    --gray-150: #eef0f5;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+
+    /* Sombras modernizadas */
+    --shadow-xs:  0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm:  0 2px 6px rgba(0, 0, 0, 0.08);
+    --shadow-md:  0 6px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg:  0 12px 28px rgba(0, 0, 0, 0.15);
+    --shadow-xl:  0 20px 48px rgba(0, 0, 0, 0.2);
+    --shadow-focus: 0 0 0 3px rgba(13, 71, 161, 0.15);
+
+    /* Border-radius */
+    --radius-sm: 6px;
+    --radius:    10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 24px;
+
+    /* Transições */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Tipografia — Fonts caracterizadas */
+    --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', 'Cascadia Code', monospace;
+}
+
+/* ── RESET GLOBAL ──────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--gray-50);
+    color: var(--gray-800);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Padrão de fundo sutil */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(13, 71, 161, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── CONTEÚDO PRINCIPAL ────────────────────────────– */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── SEÇÕES DE PÁGINA ──────────────────────────────── */
+.page-section {
+    display: none;
+    animation: fadeSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── CABEÇALHO DE SEÇÃO ────────────────────────────– */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeSlideIn 0.5s ease-out;
+}
+
+.section-header .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.08) 0%, rgba(255, 111, 0, 0.08) 100%);
+    border: 2px solid rgba(13, 71, 161, 0.1);
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.08);
+    transition: all var(--transition);
+}
+
+.section-header .icon-circle:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: rgba(13, 71, 161, 0.2);
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header .subtitle {
+    color: var(--gray-500);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ── RODAPÉ ────────────────────────────────────────– */
+.site-footer {
+    background: var(--gray-900);
+    color: var(--gray-300);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    margin-top: auto;
+}

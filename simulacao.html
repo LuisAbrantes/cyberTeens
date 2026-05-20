@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Golpes | CyberTeens Academy</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/simulation.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+
+    <!-- ── NAVEGAÇÃO ─────────────────────────────── -->
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="logo">
+            <div class="shield-icon">🛡️</div>
+            <span>CyberTeens</span>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#o-que-e">❓O que é Cibersegurança</a></li>
+            <li><a href="index.html#importancia">❗Por que é Importante</a></li>
+            <li><a href="index.html#protecao">⚔️Como se Proteger</a></li>
+            <li><a href="index.html#golpes">💸Golpes Digitais</a></li>
+            <li><a href="simulacao.html" class="active">🕹️ Simulação de Golpe</a></li>
+            <li><a href="index.html#creditos">📋 Créditos</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── CONTEÚDO PRINCIPAL ────────────────────── -->
+    <main class="main-content" id="mainContent">
+
+        <section class="page-section active">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#fff8e1;">🕹️</div>
+                <h2>Simulação de Golpes</h2>
+                <p class="subtitle">Escolha uma simulação para praticar suas habilidades de detecção de fraudes</p>
+            </div>
+
+            <!-- MENU DE ESCOLHA -->
+            <div id="simulation-menu" class="simulation-menu">
+                <div class="sim-choice-card" data-sim="phishing">
+                    <div class="sim-choice-icon">🏦</div>
+                    <h3>Golpe Bancário</h3>
+                    <p>Um suposto funcionário do banco tenta roubar seus dados por WhatsApp.</p>
+                    <button class="btn-start-sim">▶ Iniciar</button>
+                </div>
+                <div class="sim-choice-card" data-sim="tech-support">
+                    <div class="sim-choice-icon">💻</div>
+                    <h3>Suporte Técnico Falso</h3>
+                    <p>Um falso técnico da Microsoft alega que seu PC está infectado.</p>
+                    <button class="btn-start-sim">▶ Iniciar</button>
+                </div>
+                <div class="sim-choice-card" data-sim="email-analysis">
+                    <div class="sim-choice-icon">📧</div>
+                    <h3>Análise de E‑mails</h3>
+                    <p>Examine e‑mails e decida: é phishing ou legítimo?</p>
+                    <button class="btn-start-sim">▶ Iniciar</button>
+                </div>
+                <div class="sim-choice-card" data-sim="romance-scam">
+                    <div class="sim-choice-icon">💕</div>
+                    <h3>Golpe Amoroso</h3>
+                    <p>Uma pessoa atraente online tenta criar relacionamento para roubar dinheiro.</p>
+                    <button class="btn-start-sim">▶ Iniciar</button>
+                </div>
+                <div class="sim-choice-card" data-sim="fake-giveaway">
+                    <div class="sim-choice-icon">🎁</div>
+                    <h3>Falso Sorteio</h3>
+                    <p>Você "ganhou" um prêmio irrecusável que exige "taxa" para entregar.</p>
+                    <button class="btn-start-sim">▶ Iniciar</button>
+                </div>
+            </div>
+
+            <!-- ÁREA DA SIMULAÇÃO (inicialmente oculta) -->
+            <div id="simulation-area">
+                <div class="simulation-container" id="simContainer">
+                    <div class="chat-header" id="simChatHeader">
+                        <div class="chat-avatar" id="simChatAvatar">👤</div>
+                        <div class="chat-info">
+                            <div class="chat-name" id="simChatName">"Banco Itaú Segurança"</div>
+                            <div class="chat-label" id="simChatLabel">SMS / WhatsApp</div>
+                        </div>
+                        <div class="sim-badge">🎓 SIMULAÇÃO</div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+                    <div class="sim-score" id="simScore">
+                        Escolhas seguras: <span id="safeCount">0</span> / <span id="totalStages">5</span>
+                        <span id="scoreDots"></span>
+                    </div>
+                    <div class="chat-options" id="chatOptions"></div>
+                    <button class="restart-btn" id="restartBtn" style="display:none;">🔄 Reiniciar Simulação</button>
+                </div>
+                <button class="restart-btn" id="backToMenuBtn"
+                    style="display:none; margin-top: 1rem; background: var(--gray-600);">↩ Voltar ao Menu</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── RODAPÉ ─────────────────────────────────── -->
+    <footer class="site-footer">
+        <p>&copy; 2026 CyberTeens Academy &mdash; Recurso educacional para conscientização em cibersegurança.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/simulation-data.js"></script>
+    <script src="./js/simulation-data-2.js"></script>
+    <script src="./js/simulation-data-3.js"></script>
+    <script src="./js/simulation-data-4.js"></script>
+    <script src="./js/simulation-data-5.js"></script>
+    <script src="./js/simulation-engine.js"></script>
+    <script src="./js/simulation-menu.js"></script>
+    <script src="./js/menu.js"></script>
+</body>
+</html>

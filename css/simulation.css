@@ -1,0 +1,425 @@
+/* ================================================================
+   SIMULATION.CSS — Estilos do chat interativo de simulação
+   CyberSafe Academy
+   ================================================================ */
+
+/* ── CONTAINER DA SIMULAÇÃO ────────────────────────── */
+.simulation-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+/* ── CABEÇALHO DO CHAT ─────────────────────────────– */
+.chat-header {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    color: #fff;
+    padding: 1.2rem 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 2px solid rgba(13, 71, 161, 0.1);
+}
+
+.chat-header .chat-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--danger) 0%, var(--danger-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(198, 40, 40, 0.2);
+}
+
+.chat-header .chat-info .chat-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.chat-header .chat-info .chat-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.chat-header .sim-badge {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: #000;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(255, 111, 0, 0.2);
+}
+
+/* ── ÁREA DE MENSAGENS ─────────────────────────────── */
+.chat-messages {
+    padding: 1.2rem;
+    min-height: 320px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    scroll-behavior: smooth;
+}
+
+/* ── BOLHAS DE MENSAGEM ────────────────────────────── */
+.chat-messages .msg {
+    max-width: 80%;
+    padding: 0.7rem 1rem;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: msgPop 0.3s ease;
+    word-break: break-word;
+    position: relative;
+}
+
+@keyframes msgPop {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mensagem do golpista (esquerda) */
+.msg.scammer {
+    align-self: flex-start;
+    background: #e8eef5;
+    color: var(--gray-800);
+    border-bottom-left-radius: 6px;
+}
+
+/* Resposta do usuário (direita) */
+.msg.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    color: #fff;
+    border-bottom-right-radius: 6px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
+}
+
+/* Feedback de escolha segura */
+.msg.feedback-safe {
+    align-self: center;
+    background: linear-gradient(135deg, rgba(0, 137, 123, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%);
+    color: var(--success);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 90%;
+    border: 1px solid var(--success);
+    box-shadow: 0 2px 8px rgba(0, 137, 123, 0.1);
+}
+
+/* Feedback de escolha arriscada */
+.msg.feedback-risky {
+    align-self: center;
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
+    color: var(--danger);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 90%;
+    border: 1px solid var(--danger);
+    box-shadow: 0 2px 8px rgba(198, 40, 40, 0.1);
+}
+
+/* Mensagem do sistema */
+.msg.system {
+    align-self: center;
+    background: transparent;
+    color: var(--gray-400);
+    font-style: italic;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* ── INDICADOR DE DIGITAÇÃO ────────────────────────── */
+.typing-indicator {
+    align-self: flex-start;
+    display: flex;
+    gap: 4px;
+    padding: 0.5rem 0.8rem;
+    background: #e8eef5;
+    border-radius: 18px;
+    border-bottom-left-radius: 6px;
+    animation: msgPop 0.3s ease;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #94a3b8;
+    animation: bounce 1.2s infinite;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0);   }
+    30%           { transform: translateY(-8px); }
+}
+
+/* ── OPÇÕES DE RESPOSTA ────────────────────────────── */
+.chat-options {
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: #fff;
+    border-top: 1px solid var(--gray-200);
+}
+
+.chat-options button {
+    width: 100%;
+    text-align: left;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius);
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-sans);
+    transition: var(--transition);
+    color: var(--gray-800);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.chat-options button:hover {
+    border-color: var(--primary);
+    background: rgba(13, 71, 161, 0.08);
+    transform: translateX(2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.chat-options button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Destaques de acerto e erro */
+.chat-options button.correct-highlight {
+    border-color: var(--success) !important;
+    background: rgba(0, 137, 123, 0.15) !important;
+    color: var(--success) !important;
+}
+
+.chat-options button.incorrect-highlight {
+    border-color: var(--danger) !important;
+    background: rgba(198, 40, 40, 0.15) !important;
+    color: var(--danger) !important;
+}
+
+/* ── PLACAR DA SIMULAÇÃO ───────────────────────────── */
+.sim-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background: var(--gray-100);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--navy);
+    border-top: 1px solid var(--gray-200);
+}
+
+.sim-score .score-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.sim-score .score-dot.safe  { background: var(--success); }
+.sim-score .score-dot.risky { background: var(--danger);   }
+
+/* ── BOTÃO DE REINICIAR ────────────────────────────– */
+.restart-btn {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 71, 161, 0.3);
+}
+
+/* ── MENU DE ESCOLHA DE SIMULAÇÃO ───────────────── */
+.simulation-menu {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    animation: fadeSlideIn 0.5s ease;
+}
+
+.sim-choice-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 2rem 1.5rem;
+    width: 280px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--gray-200);
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.sim-choice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.sim-choice-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+}
+
+.sim-choice-card:hover::before {
+    transform: scaleX(1);
+}
+
+.sim-choice-card h3 {
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.sim-choice-card p {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+}
+
+.btn-start-sim {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.8rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-family: var(--font-body);
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
+}
+
+.btn-start-sim:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 71, 161, 0.3);
+}
+
+/* Esconde o container da simulação até que uma seja escolhida */
+#simulation-area {
+    display: none;
+    animation: fadeSlideIn 0.5s ease;
+}
+
+/* ── ESTILO DO E-MAIL DENTRO DO CHAT ────────────── */
+.msg.email-preview {
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-family: var(--font-sans);
+    max-width: 90%;
+    align-self: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.email-sender {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--gray-700);
+}
+
+.email-subject {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0.3rem 0 0.5rem;
+    color: var(--gray-900);
+}
+
+.email-body {
+    font-size: 0.85rem;
+    color: var(--gray-800);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.email-body a {
+    color: var(--danger);
+    text-decoration: underline;
+}
+
+.email-indicators {
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    border-top: 1px dashed var(--gray-300);
+    padding-top: 0.6rem;
+}
+
+.email-indicators span {
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.email-indicators .suspicious {
+    color: var(--danger);
+}
+
+.email-indicators .legitimate {
+    color: var(--success);
+}
+
+

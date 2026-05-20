@@ -1,146 +1,341 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberTeens - Segurança na Internet</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-            padding: 50px 40px;
-            max-width: 600px;
-        }
-        h1 {
-            color: #667eea;
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        .description {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            background: #f0f4ff;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #667eea;
-        }
-        .features {
-            text-align: left;
-            margin-bottom: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .feature {
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        .feature strong {
-            color: #667eea;
-            display: block;
-            margin-bottom: 8px;
-        }
-        .button-group {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        button {
-            padding: 15px 40px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        .btn-start {
-            background: #667eea;
-            color: white;
-        }
-        .btn-start:hover {
-            background: #5568d3;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-        .btn-info {
-            background: #764ba2;
-            color: white;
-        }
-        .btn-info:hover {
-            background: #653a7a;
-            transform: translateY(-3px);
-        }
-        @media (max-width: 400px) {
-            h1 {
-                font-size: 36px;
-            }
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Segurança Digital | Guia Acadêmico</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/simulation.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/credits.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>🔐 CyberTeens</h1>
-        <p class="subtitle">Seu Guia de Segurança na Internet</p>
-        
-        <div class="description">
-            Bem-vindo ao CyberTeens! Aprenda sobre os principais riscos da internet e como se proteger. 
-            Faça nosso quiz interativo e teste seus conhecimentos sobre segurança cibernética!
+
+    <!-- ── NAVEGAÇÃO ─────────────────────────────── -->
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="logo">
+            <div class="shield-icon">🛡️</div>
+            <span>CyberTeens</span>
         </div>
-        
-        <div class="features">
-            <div class="feature">
-                <strong>✅ 10 Cenários Reais</strong>
-                Situações que adolescentes enfrentam
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#o-que-e" data-page="o-que-e" class="active">❓O que é Cibersegurança</a></li>
+            <li><a href="#importancia" data-page="importancia">❗Por que é Importante</a></li>
+            <li><a href="#protecao" data-page="protecao">⚔️Como se Proteger</a></li>
+            <li><a href="#golpes" data-page="golpes">💸Golpes Digitais</a></li>
+            <li><a href="simulacao.html">🕹️ Simulação de Golpe</a></li>
+            <li><a href="#creditos" data-page="creditos">📋 Créditos</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── CONTEÚDO PRINCIPAL ────────────────────── -->
+    <main class="main-content" id="mainContent">
+
+        <!-- PÁGINA 1: O que é Cibersegurança -->
+        <section class="page-section active" id="page-o-que-e" data-page="o-que-e">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#e0f4ff;">🔐</div>
+                <h2>O que é Cibersegurança?</h2>
+                <p class="subtitle">Entendendo os fundamentos da proteção digital</p>
             </div>
-            <div class="feature">
-                <strong>🎯 Quiz Educativo</strong>
-                Aprenda sobre segurança
+            <div class="cards-grid">
+                <div class="card accent-top">
+                    <span class="card-icon">🛡️</span>
+                    <h3>Definição</h3>
+                    <p>Cibersegurança é a prática de proteger sistemas de computadores, redes, dispositivos e dados
+                        contra ataques digitais, acesso não autorizado, danos ou roubo. Envolve tecnologias, processos e
+                        comportamentos humanos voltados à proteção de ativos digitais.</p>
+                </div>
+                <div class="card accent-top">
+                    <span class="card-icon">🎯</span>
+                    <h3>Objetivos Principais (Tríade CIA)</h3>
+                    <p><strong>Confidencialidade</strong> – manter os dados privados.<br>
+                        <strong>Integridade</strong> – garantir que os dados sejam precisos e inalterados.<br>
+                        <strong>Disponibilidade</strong> – assegurar que os sistemas estejam acessíveis quando
+                        necessário.
+                    </p>
+                </div>
+                <div class="card accent-top">
+                    <span class="card-icon">🌐</span>
+                    <h3>Abrangência</h3>
+                    <p>A cibersegurança cobre desde a proteção de dispositivos pessoais até a defesa de redes
+                        empresariais, segurança de infraestruturas críticas e defesa nacional contra guerras
+                        cibernéticas e espionagem.</p>
+                </div>
             </div>
-            <div class="feature">
-                <strong>🛡️ Dicas Práticas</strong>
-                Como se proteger online
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-number">$10,5T</div>
+                    <div class="stat-label">Custo global projetado do cibercrime até 2025</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">68%</div>
+                    <div class="stat-label">Das violações envolvem erro humano</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1 em 3</div>
+                    <div class="stat-label">Brasileiros afetados por golpes digitais por ano</div>
+                </div>
             </div>
-            <div class="feature">
-                <strong>📊 Feedback Instantâneo</strong>
-                Veja sua pontuação
+        </section>
+
+        <!-- PÁGINA 2: Por que a Cibersegurança é Importante -->
+        <section class="page-section" id="page-importancia" data-page="importancia">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#fff3e0;">🌍</div>
+                <h2>Por que a Cibersegurança é Importante</h2>
+                <p class="subtitle">Impacto real e os riscos da segurança digital</p>
             </div>
-        </div>
-        
-        <div class="button-group">
-            <button class="btn-start" onclick="window.location.href='quiz.html'">🚀 Começar Quiz</button>
-            <button class="btn-info" onclick="window.location.href='riscos_ciberneticos.md'">📚 Ver Riscos</button>
-        </div>
-    </div>
+            <div class="cards-grid">
+                <div class="card warning-top">
+                    <span class="card-icon">🏦</span>
+                    <h3>Proteção Financeira</h3>
+                    <p>Ataques cibernéticos custam bilhões a empresas e indivíduos anualmente. Ransomware, fraudes e
+                        vazamentos de dados podem esvaziar contas bancárias, destruir empresas e arruinar finanças
+                        pessoais.</p>
+                </div>
+                <div class="card warning-top">
+                    <span class="card-icon">🏥</span>
+                    <h3>Infraestrutura Crítica</h3>
+                    <p>Hospitais, redes de energia, sistemas de água e transportes dependem de sistemas digitais
+                        seguros. Uma única violação pode interromper serviços essenciais e colocar vidas em risco.</p>
+                </div>
+                <div class="card warning-top">
+                    <span class="card-icon">🔒</span>
+                    <h3>Privacidade Pessoal</h3>
+                    <p>Seus dados pessoais — fotos, mensagens, registros de saúde e localização — precisam ser
+                        protegidos de ladrões de identidade, perseguidores e criminosos que exploram informações
+                        expostas.</p>
+                </div>
+                <div class="card warning-top">
+                    <span class="card-icon">🏛️</span>
+                    <h3>Segurança Nacional</h3>
+                    <p>Ataques cibernéticos patrocinados por Estados visam agências governamentais, sistemas de defesa e
+                        infraestrutura eleitoral. A cibersegurança é hoje um pilar da estratégia de defesa nacional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA 3: Como se Proteger -->
+        <section class="page-section" id="page-protecao" data-page="protecao">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#e8f5e9;">✅</div>
+                <h2>Como se Proteger</h2>
+                <p class="subtitle">Medidas práticas que todos devem adotar</p>
+            </div>
+            <ul class="tip-list">
+                <li>
+                    <div class="tip-num">1</div>
+                    <div class="tip-content">
+                        <h4>Use Senhas Fortes e Únicas</h4>
+                        <p>Crie senhas com 12+ caracteres combinando letras, números e símbolos. Nunca reutilize senhas
+                            em contas diferentes. Considere usar um gerenciador de senhas confiável.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tip-num">2</div>
+                    <div class="tip-content">
+                        <h4>Ative a Autenticação em Dois Fatores (2FA)</h4>
+                        <p>Adicione uma segunda etapa de verificação — como um código enviado ao celular — em todas as
+                            contas importantes. O 2FA bloqueia 99% dos ataques automatizados.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tip-num">3</div>
+                    <div class="tip-content">
+                        <h4>Mantenha os Softwares Atualizados</h4>
+                        <p>Instale atualizações de segurança imediatamente em todos os dispositivos. Softwares
+                            desatualizados contêm vulnerabilidades conhecidas que atacantes exploram ativamente.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tip-num">4</div>
+                    <div class="tip-content">
+                        <h4>Desconfie de Mensagens Não Solicitadas</h4>
+                        <p>Não confie em e-mails, SMS ou ligações inesperadas pedindo informações pessoais. Verifique o
+                            remetente por meio de um canal confiável e separado.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tip-num">5</div>
+                    <div class="tip-content">
+                        <h4>Verifique as URLs dos Sites</h4>
+                        <p>Antes de inserir dados sensíveis, confirme que a URL começa com <strong>https://</strong> e
+                            corresponde exatamente ao domínio oficial — fique atento a pequenas diferenças de grafia.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="tip-num">6</div>
+                    <div class="tip-content">
+                        <h4>Faça Backup dos Seus Dados Regularmente</h4>
+                        <p>Mantenha cópias offline dos arquivos importantes. Em um ataque de ransomware, ter backup
+                            significa que você não precisará pagar para recuperar seus dados.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- PÁGINA 4: Golpes Digitais -->
+        <section class="page-section" id="page-golpes" data-page="golpes">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#fce4ec;">⚠️</div>
+                <h2>Golpes Digitais</h2>
+                <p class="subtitle">Tipos comuns de fraude online e como reconhecê-los</p>
+            </div>
+            <div class="cards-grid">
+                <div class="scam-type-card">
+                    <div class="scam-badge">🎣</div>
+                    <div>
+                        <h4>Phishing</h4>
+                        <p>E-mails ou mensagens fraudulentas que parecem ser de fontes confiáveis, criadas para
+                            enganá-lo e roubar senhas, números de cartão de crédito ou outros dados sensíveis.</p>
+                        <span class="warning-tag">⚠️ Vetor de ataque mais comum</span>
+                    </div>
+                </div>
+                <div class="scam-type-card">
+                    <div class="scam-badge">🎭</div>
+                    <div>
+                        <h4>Engenharia Social</h4>
+                        <p>Manipulação psicológica que explora a confiança humana. Os golpistas podem se passar por
+                            colegas, suporte técnico ou familiares para obter acesso ou informações.</p>
+                        <span class="warning-tag">⚠️ Explora a psicologia humana</span>
+                    </div>
+                </div>
+                <div class="scam-type-card">
+                    <div class="scam-badge">🕸️</div>
+                    <div>
+                        <h4>Sites Falsos</h4>
+                        <p>Sites falsificados que imitam os legítimos (bancos, lojas, portais governamentais) para
+                            roubar credenciais ou dados de pagamento. Sempre verifique a URL com cuidado.</p>
+                        <span class="warning-tag">⚠️ Verifique HTTPS e o domínio correto</span>
+                    </div>
+                </div>
+                <div class="scam-type-card">
+                    <div class="scam-badge">📈</div>
+                    <div>
+                        <h4>Golpes de Investimento e Cripto</h4>
+                        <p>Fraudadores prometem altos retornos com baixo risco, usando plataformas falsas ou esquemas
+                            Ponzi. Uma vez que você deposita, o saque se torna impossível.</p>
+                        <span class="warning-tag">⚠️ "Bom demais para ser verdade"</span>
+                    </div>
+                </div>
+                <div class="scam-type-card">
+                    <div class="scam-badge">📞</div>
+                    <div>
+                        <h4>Golpes de Suporte Técnico</h4>
+                        <p>Golpistas ligam dizendo ser da Microsoft, Apple ou operadora, afirmando que seu dispositivo
+                            está infectado. Eles pedem acesso remoto ou pagamento por reparos falsos.</p>
+                        <span class="warning-tag">⚠️ Empresas legítimas não ligam sem aviso</span>
+                    </div>
+                </div>
+                <div class="scam-type-card">
+                    <div class="scam-badge">💔</div>
+                    <div>
+                        <h4>Golpes Românticos</h4>
+                        <p>Golpistas constroem relacionamentos falsos online para ganhar confiança e depois pedem
+                            dinheiro para emergências, viagens ou investimentos. As vítimas perdem bilhões anualmente.
+                        </p>
+                        <span class="warning-tag">⚠️ Nunca envie dinheiro a quem só conhece online</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA 5: Créditos -->
+        <section class="page-section" id="page-creditos" data-page="creditos">
+            <div class="section-header">
+                <div class="icon-circle" style="background:#e8e5f5;">📋</div>
+                <h2>Créditos do Projeto</h2>
+                <p class="subtitle">Equipe responsável pelo desenvolvimento deste recurso educacional</p>
+            </div>
+
+            <div class="project-about">
+                <h3>Sobre o Projeto</h3>
+                <p>
+                    Este site foi desenvolvido como parte de um trabalho acadêmico com o objetivo de
+                    conscientizar sobre cibersegurança e golpes digitais. Através de conteúdo informativo
+                    e simulações interativas, buscamos educar o público sobre práticas seguras online.
+                </p>
+            </div>
+
+            <h3 class="team-title">Nossa Equipe</h3>
+            <div class="authors-grid">
+                <!-- Autor 1 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/bruno.jpeg" alt="Foto do Autor 1" class="author-img">
+                    </div>
+                    <span class="author-name">Bruno</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 2 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/diobel.jpeg" alt="Foto do Autor 2" class="author-img">
+                    </div>
+                    <span class="author-name">Diobel</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 3 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/luana.jpeg" alt="Foto do Autor 3" class="author-img">
+                    </div>
+                    <span class="author-name">Luana</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 4 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/luis.jpg" alt="Foto do Autor 4" class="author-img">
+                    </div>
+                    <span class="author-name">Luis</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 5 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/lucas.jpg" alt="Foto do Autor 5" class="author-img">
+                    </div>
+                    <span class="author-name">Lucas</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 6 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/mateus.jpeg" alt="Foto do Autor 6" class="author-img">
+                    </div>
+                    <span class="author-name">Mateus</span>
+                    <span class="author-role">Autor</span>
+                </div>
+                <!-- Autor 7 -->
+                <div class="author-card">
+                    <div class="author-photo">
+                        <img src="./images/otavio.jpeg" alt="Foto do Autor 7" class="author-img">
+                    </div>
+                    <span class="author-name">Otávio</span>
+                    <span class="author-role">Autor</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── RODAPÉ ─────────────────────────────────── -->
+    <footer class="site-footer">
+        <p>&copy; 2026 CyberTeens Academy &mdash; Recurso educacional para conscientização em cibersegurança. Todos os
+            cenários são simulados para fins de aprendizado.</p>
+    </footer>
+
+    <script src="./js/navigation.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
-</html>     
+
+</html>

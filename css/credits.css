@@ -1,0 +1,186 @@
+/* ================================================================
+   CREDITS.CSS — Estilos da página de créditos
+   CyberTeens Academy | Design Refatorado
+   ================================================================ */
+
+.project-about {
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all var(--transition);
+}
+
+.project-about:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.project-about h3 {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.project-about p {
+    color: var(--gray-700);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.team-title {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+/* Grid de autores – DESKTOP: 4 colunas fixas */
+.authors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Card de autor */
+.author-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 2rem 1.2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.author-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+
+.author-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.author-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Foto */
+.author-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.08) 0%, rgba(255, 111, 0, 0.08) 100%);
+    margin: 0 auto 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.15);
+}
+
+.author-card:hover .author-photo {
+    border-color: var(--accent);
+    box-shadow: 0 6px 16px rgba(13, 71, 161, 0.2);
+    transform: scale(1.05);
+}
+
+/* Imagem do autor */
+.author-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nome */
+.author-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--gray-900);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.author-role {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* ── RESPONSIVO: 2 colunas em tablets ───────────– */
+@media (max-width: 768px) {
+    .authors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .author-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .author-card {
+        padding: 1.8rem 1rem 1.2rem;
+    }
+}
+
+/* ── RESPONSIVO: 1 coluna em celulares ──────────– */
+@media (max-width: 480px) {
+    .authors-grid {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin: 0 auto;
+        gap: 1.2rem;
+    }
+
+    .author-card {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .author-photo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .author-name {
+        font-size: 0.9rem;
+    }
+
+    .author-role {
+        font-size: 0.75rem;
+    }
+}

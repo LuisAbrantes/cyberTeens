@@ -1,0 +1,240 @@
+/* ================================================================
+   RESPONSIVE.CSS — Media queries para telas menores
+   CyberTeens Academy | Design Refatorado
+   ================================================================ */
+
+/* ── TABLETS E CELULARES (≤ 768px) ────────────────– */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 0.6rem 1rem;
+        min-height: 60px;
+    }
+
+    /* Logo */
+    .navbar .logo {
+        font-size: 1.15rem;
+    }
+
+    .navbar .logo .shield-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Menu mobile — escondido por padrão, revelado via JS */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--gray-900);
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        display: none;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid rgba(13, 71, 161, 0.1);
+        z-index: 999;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li a {
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(13, 71, 161, 0.1);
+    }
+
+    /* Exibir botão hambúrguer */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Tipografia responsiva */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-header .icon-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    /* Grid de cards — coluna única */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Conteúdo principal */
+    .main-content {
+        padding: 2rem 1rem 3rem;
+    }
+
+    /* Chat da simulação */
+    .chat-messages {
+        max-height: 300px;
+        min-height: 240px;
+    }
+
+    .msg {
+        max-width: 88%;
+        font-size: 0.85rem;
+    }
+
+    /* Estatísticas — empilhadas verticalmente */
+    .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.2rem;
+    }
+
+    .stat-box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Botões */
+    button, .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ── CELULARES PEQUENOS (≤ 480px) ──────────────────– */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 0.5rem 0.8rem;
+        min-height: 56px;
+        gap: 0.8rem;
+    }
+
+    .navbar .logo {
+        font-size: 1rem;
+        gap: 0.5rem;
+    }
+
+    .navbar .logo .shield-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+
+    /* Tipografia */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Section header */
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .section-header .icon-circle {
+        width: 56px;
+        height: 56px;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-header .subtitle {
+        font-size: 1rem;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.4rem;
+    }
+
+    /* Conteúdo principal */
+    .main-content {
+        padding: 1.5rem 0.75rem 2.5rem;
+    }
+
+    /* Chat da simulação */
+    .chat-header {
+        padding: 0.8rem 1rem;
+    }
+
+    .chat-header .chat-name {
+        font-size: 0.9rem;
+    }
+
+    .chat-options button {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .msg {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.9rem;
+    }
+
+    /* Estatísticas */
+    .stat-box {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .stat-box .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-box .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* Listas */
+    .tip-list li {
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+
+    .tip-list li .tip-num {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    /* Botões */
+    button, .btn {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    /* Grid de stats */
+    .stats-row {
+        gap: 1rem;
+    }
+}
