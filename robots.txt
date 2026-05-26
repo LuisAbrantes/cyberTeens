@@ -1,0 +1,24 @@
+# ==============================================================================
+# CyberTeens Robots.txt Configuration
+# ==============================================================================
+
+# Permitir todos os crawlers de busca e inteligência artificial
+User-agent: *
+Allow: /
+
+# Permitir rastreadores de inteligência artificial para citações (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Evitar rastreamento de pastas de configuração internas
+Disallow: /.agents/
+Disallow: /.git/
+
+# Caminho para o Sitemap
+Sitemap: https://cyberteens.academy/sitemap.xml

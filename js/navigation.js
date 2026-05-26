@@ -33,8 +33,10 @@
             }
         });
 
-        // Fecha o menu mobile se estiver aberto
-        closeMobileMenu();
+        // Fecha o menu mobile se estiver aberto usando a função exposta globalmente
+        if (typeof window.closeMobileMenu === 'function') {
+            window.closeMobileMenu();
+        }
 
         // Rola suavemente até o topo do conteúdo principal
         const mainContent = document.getElementById('mainContent');
@@ -44,13 +46,6 @@
                 block: 'start',
             });
         }
-    }
-
-    /** Fecha o menu mobile */
-    function closeMobileMenu() {
-        navLinksContainer.classList.remove('show');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
     }
 
     // ── Eventos de clique nos links internos ──────────
@@ -65,22 +60,8 @@
         });
     });
 
-    // ── Hambúrguer: abre/fecha menu mobile ──────────
-    hamburger.addEventListener('click', function () {
-        const isOpen = navLinksContainer.classList.toggle('show');
-        hamburger.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    // ── Fecha menu ao clicar fora dele ───────────────
-    document.addEventListener('click', function (e) {
-        if (!hamburger.contains(e.target) && !navLinksContainer.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
-
     // ── Lida com hash da URL na entrada/mudança ──────
-    const VALID_PAGES = ['o-que-e', 'importancia', 'protecao', 'golpes', 'creditos'];
+    const VALID_PAGES = ['o-que-e', 'importancia', 'protecao', 'golpes', 'faq', 'creditos'];
 
     function handleHash() {
         const hash = window.location.hash.replace('#', '');

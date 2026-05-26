@@ -34,4 +34,7 @@
             closeMenu();
         }
     });
+
+    // Expõe a função globalmente para navegação externa
+    window.closeMobileMenu = closeMenu;
 })();
