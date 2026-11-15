@@ -21,4 +21,4 @@ Disallow: /.agents/
 Disallow: /.git/
 
 # Caminho para o Sitemap
-Sitemap: https://cyberteens.academy/sitemap.xml
+Sitemap: https://cyberteens.luisabrantes.dev/sitemap.xml
